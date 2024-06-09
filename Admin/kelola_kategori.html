@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelola Kategori</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Kelola Kategori</h1>
+
+        <button class="btn btn-primary my-3" data-toggle="modal" data-target="#modalTambahKategori">Tambah Kategori</button>
+        <button class="btn btn-primary my-3" data-toggle="modal" onclick="window.location.href ='kelola_produk.html'">Kelola Produk</button>
+
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nama</th>
+                    <th>Deskripsi</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody id="kategori-table-body">
+                <!-- Data kategori akan dimuat di sini -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal Tambah Kategori -->
+    <div class="modal fade" id="modalTambahKategori" tabindex="-1" role="dialog" aria-labelledby="modalTambahKategoriLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTambahKategoriLabel">Tambah Kategori</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formTambahKategori">
+                        <div class="form-group">
+                            <label for="namaKategori">Nama</label>
+                            <input type="text" class="form-control" id="namaKategori" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="deskripsiKategori">Deskripsi</label>
+                            <textarea class="form-control" id="deskripsiKategori" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Tambah Kategori</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Edit Kategori -->
+    <div class="modal fade" id="modalEditKategori" tabindex="-1" role="dialog" aria-labelledby="modalEditKategoriLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalEditKategoriLabel">Edit Kategori</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formEditKategori">
+                        <input type="hidden" id="editKategoriId">
+                        <div class="form-group">
+                            <label for="editNamaKategori">Nama</label>
+                            <input type="text" class="form-control" id="editNamaKategori" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editDeskripsiKategori">Deskripsi</label>
+                            <textarea class="form-control" id="editDeskripsiKategori" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="Script/Admin-kelola-kategori.js"></script>
+</body>
+</html>

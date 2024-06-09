@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelola Produk</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <nav class="navbar bg-body-tertiary">
+            <form class="container-fluid justify-content-start">
+                <button class="btn btn-outline-success me-2" type="button"href="#" id="logout-btn">Logout</button>
+            </form>
+            </nav>
+            <br>
+        <h2>Kelola Produk</h2>
+        <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#modalTambahProduk">Tambah Produk</button>
+        <button type="button" class="btn btn-primary mb-3" onclick="window.location.href ='kelola_kategori.html'">Kelola Kategori</button>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Gambar</th>
+                    <th>Nama</th>
+                    <th>Deskripsi</th>
+                    <th>Harga</th>
+                    <th>Stok</th>
+                    <th>Kategori</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody id="produk-table-body">
+                <!-- Produk akan ditambahkan di sini -->
+            </tbody>
+        </table>
+        
+    </div>
+
+    <!-- Modal Tambah Produk -->
+    <div class="modal fade" id="modalTambahProduk" tabindex="-1" role="dialog" aria-labelledby="modalTambahProdukLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTambahProdukLabel">Tambah Produk</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formTambahProduk">
+                        <div class="form-group">
+                            <label for="namaProduk">Nama</label>
+                            <input type="text" class="form-control" id="namaProduk" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="deskripsiProduk">Deskripsi</label>
+                            <textarea class="form-control" id="deskripsiProduk" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="hargaProduk">Harga</label>
+                            <input type="number" class="form-control" id="hargaProduk" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="stokProduk">Stok</label>
+                            <input type="number" class="form-control" id="stokProduk" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="kategoriProduk">Kategori</label>
+                            <select class="form-control" id="kategoriProduk" required>
+                                <!-- Opsi Kategori akan ditambahkan dengan JavaScript -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="imageProduk">Gambar</label>
+                            <input type="file" class="form-control-file" id="imageProduk" accept="image/*" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Modal Edit Produk -->
+<div class="modal fade" id="modalEditProduk" tabindex="-1" role="dialog" aria-labelledby="modalEditProdukLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalEditProdukLabel">Edit Produk</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="formEditProduk">
+                    <input type="hidden" id="editProdukId">
+                    <div class="form-group">
+                        <label for="editNamaProduk">Nama</label>
+                        <input type="text" class="form-control" id="editNamaProduk" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editDeskripsiProduk">Deskripsi</label>
+                        <textarea class="form-control" id="editDeskripsiProduk" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="editHargaProduk">Harga</label>
+                        <input type="number" class="form-control" id="editHargaProduk" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editStokProduk">Stok</label>
+                        <input type="number" class="form-control" id="editStokProduk" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editKategoriProduk">Kategori</label>
+                        <select class="form-control" id="editKategoriProduk" required>
+                            <!-- kategori pilih disini -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="editImageProduk">Gambar</label>
+                        <input type="file" class="form-control-file" id="editImageProduk" accept="image/*" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="Script/admin-kelola-produk.js"></script>
+    <!-- <script>src="../Script/logout-script.js"</script> -->
+
+    <script>
+            // Fungsi untuk logout
+    document.getElementById('logout-btn').addEventListener('click', function(event) {
+        event.preventDefault();
+        const token = localStorage.getItem('token');
+        if (window.confirm('Apakah Anda yakin ingin keluar?')) {
+            if (token) {
+                fetch('http://localhost:8000/api/logout', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                    },
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        localStorage.removeItem('token'); // Remove token
+                        window.location.href = '../login.html'; // Redirect ke login
+                    } else {
+                        console.error('Logout failed:', data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error during logout:', error);
+                });
+            } else {
+                console.error('Token not found.');
+            }
+        }
+    });
+    </script>
+</body>
+</html>
+
